@@ -1,7 +1,7 @@
 package com.example.unsplashapiproject.data.remote
 
 import com.example.unsplashapiproject.BuildConfig
-import com.example.unsplashapiproject.models.UnsplashImage
+import com.example.unsplashapiproject.data.models.UnsplashImage
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.hilt.android)
+    //alias(libs.plugins.ksp)
+    kotlin("kapt")
 }
 
 android {
@@ -40,6 +43,12 @@ android {
         compose = true
         buildConfig = true
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
+            excludes += "/META-INF/androidx/room/room-compiler-processing/LICENSE.txt"
+        }
+    }
 }
 
 configurations.implementation{
@@ -59,6 +68,8 @@ dependencies {
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter.kotlinx.serialization)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
