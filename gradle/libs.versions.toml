@@ -13,6 +13,8 @@ roomCommonJvm = "2.7.1"
 kotlinx-serialization = "1.8.1"
 retrofit = "2.9.0"
 hilt = "2.56.2"
+pagingCommonAndroid = "3.3.6"
+roomRuntimeAndroid = "2.7.1"
 #ksp = "2.0.0-1.0.21"
 
 [libraries]
@@ -39,6 +41,9 @@ androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", 
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
+androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

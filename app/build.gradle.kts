@@ -69,6 +69,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.paging.common.android)
+    implementation(libs.androidx.room.runtime.android)
     kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

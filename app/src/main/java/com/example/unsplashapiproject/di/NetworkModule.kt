@@ -22,7 +22,7 @@ import javax.inject.Singleton
 object NetworkModule{
     @Provides
     @Singleton
-    fun provideHttpClien(): OkHttpClient{
+    fun provideHttpClient(): OkHttpClient{
         return OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -31,7 +31,7 @@ object NetworkModule{
 
     @Provides
     @Singleton
-    fun provideRetrofi(httpClient: OkHttpClient): Retrofit{
+    fun provideRetrofit(httpClient: OkHttpClient): Retrofit{
 
         val contentType = okhttp3.MediaType.get("application/json")
         val json = Json{ignoreUnknownKeys = true}
