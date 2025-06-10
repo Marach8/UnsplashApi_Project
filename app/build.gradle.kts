@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt.android)
-    //alias(libs.plugins.ksp)
     kotlin("kapt")
 }
 
@@ -64,7 +63,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.paging)
+    //implementation(libs.androidx.room.compiler)
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter.kotlinx.serialization)
@@ -75,6 +76,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose.android)
     implementation(libs.androidx.paging.compose.android)
     implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
     implementation (libs.coil.compose)
     testImplementation(libs.junit)

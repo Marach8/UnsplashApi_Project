@@ -93,7 +93,7 @@ class UnsplashRemoteMediator @Inject constructor(
     ) : UnsplashRemoteKeys?{
         val firstNonEmptyPage = state.pages.firstOrNull{page -> page.data.isNotEmpty()}
         return firstNonEmptyPage?.data?.firstOrNull()?.let { unsplashImg ->
-            unsplashImg.id?.let { id -> unsplashRemoteKeysDao.getRemoteKeys(id = id) }
+            unsplashImg.id.let { id -> unsplashRemoteKeysDao.getRemoteKeys(id = id) }
         }
     }
 
@@ -102,7 +102,7 @@ class UnsplashRemoteMediator @Inject constructor(
     ) : UnsplashRemoteKeys?{
         val lastNonEmptyPage = state.pages.lastOrNull{page -> page.data.isNotEmpty()}
         return lastNonEmptyPage?.data?.lastOrNull()?.let { unsplashImg ->
-            unsplashImg.id?.let { id -> unsplashRemoteKeysDao.getRemoteKeys(id = id) }
+            unsplashImg.id.let { id -> unsplashRemoteKeysDao.getRemoteKeys(id = id) }
         }
     }
 }

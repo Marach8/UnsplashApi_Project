@@ -1,5 +1,6 @@
 package com.example.unsplashapiproject.screens.commons
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,10 +15,15 @@ import com.example.unsplashapiproject.data.models.UnsplashImage
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun ListUnsplashItems(unsplashImages: LazyPagingItems<UnsplashImage>){
+fun ListUnsplashItems(
+    unsplashImages: LazyPagingItems<UnsplashImage>,
+    paddingValues: PaddingValues
+){
+    Log.d("Error", unsplashImages.loadState.toString())
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(all = 12.dp),
+        contentPadding = paddingValues,
+        //contentPadding = PaddingValues(all = 12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
         items(

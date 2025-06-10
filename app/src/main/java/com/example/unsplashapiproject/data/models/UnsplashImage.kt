@@ -11,16 +11,16 @@ import kotlinx.serialization.Serializable
 @Entity(tableName = UNSPLASH_IMAGE_TABLE)
 data class UnsplashImage(
     @PrimaryKey(autoGenerate = false)
-    val id: String?,
+    val id: String,
     @Embedded
-    val url: Url?,
-    val noOfLikes: Int,
+    val urls: Urls?,
+    val likes: Int?,
     @Embedded
     val user: User
 )
 
 @Serializable
-data class Url(
+data class Urls(
     val regular: String?
 )
 
@@ -37,5 +37,5 @@ data class User(
 
 @Serializable
 data class UserLinks(
-    val htm: String?
+    val html: String?
 )

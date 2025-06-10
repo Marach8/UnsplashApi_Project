@@ -2,6 +2,7 @@ package com.example.unsplashapiproject.screens.commons
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -46,9 +47,12 @@ fun RenderUnsplashImage(image: UnsplashImage){
     Box(
         modifier = Modifier
             .clickable {
+                val unsplashUserUrl = "https://unsplash.com/@${image.user.name}?utm_source=Android App&utm_medium=referral"
+
+                //Log.d("UnsplashClick", "Opening URL: $unsplashUserUrl")
                 val browserIntent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://unsplash.com/@${image.user.name}?utm_source=Android App&utm_medium=referral")
+                    Uri.parse(unsplashUserUrl)
                 )
                 context.startActivity(browserIntent)
             }
@@ -57,7 +61,7 @@ fun RenderUnsplashImage(image: UnsplashImage){
         contentAlignment = Alignment.BottomCenter
     ){
         AsyncImage(
-            model = image.url?.regular,
+            model = image.urls?.regular,
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
@@ -91,7 +95,7 @@ fun RenderUnsplashImage(image: UnsplashImage){
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            LikesCounter(likes = image.noOfLikes.toString())
+            LikesCounter(likes = image.likes.toString())
         }
     }
 }
