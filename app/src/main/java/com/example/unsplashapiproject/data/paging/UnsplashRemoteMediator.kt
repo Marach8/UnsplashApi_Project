@@ -1,4 +1,4 @@
-package com.example.unsplashapiproject.data.pagin
+package com.example.unsplashapiproject.data.paging
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
@@ -9,10 +9,9 @@ import com.example.unsplashapiproject.data.local.UnsplashDatabase
 import com.example.unsplashapiproject.data.models.UnsplashImage
 import com.example.unsplashapiproject.data.models.UnsplashRemoteKeys
 import com.example.unsplashapiproject.data.remote.UnsplashApi
-import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
-class UnsplashRemoteMediator @Inject constructor(
+class UnsplashRemoteMediator(
     private val unsplashApi: UnsplashApi,
     private val unsplashDatabase: UnsplashDatabase
 ) : RemoteMediator<Int, UnsplashImage>() {

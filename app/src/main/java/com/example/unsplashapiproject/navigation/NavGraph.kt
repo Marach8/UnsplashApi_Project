@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import coil.annotation.ExperimentalCoilApi
 import com.example.unsplashapiproject.screens.home.HomeScreen
+import com.example.unsplashapiproject.screens.search.SearchScreen
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -23,7 +24,7 @@ fun SetupNavGraph(navController: NavHostController){
         }
 
         composable(route = Screens.Search.route){
-            //SearchScreen(navController = navController)
+            SearchScreen(navController = navController)
         }
     }
 }
